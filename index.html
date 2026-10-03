@@ -1,3642 +1,796 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Chandramohan P | Automotive Technology & Business Analytics</title>
-
-<meta
-name="description"
-content="Chandramohan P — MBA student and B.E. Computer Science Engineer focused on Automotive Business Analytics, Data, Technology and Digital Transformation."
->
+<title>Chandramohan P | MBA Candidate & Business Analytics</title>
+<meta name="description" content="Chandramohan P — MBA student and B.E. Computer Science Engineer focused on Business Analytics, Data Strategy, Product Management, and Digital Transformation.">
 
 <style>
-
 /* =========================================================
-   ROOT
+   ROOT & CORE STYLES
 ========================================================= */
-
-:root{
-
-    --black:#050607;
-    --black2:#090b0e;
-    --panel:#0d1014;
-    --panel2:#11151a;
-
-    --white:#f4f5f6;
-    --grey:#9ca3aa;
-    --grey2:#69717a;
-
-    --red:#e31b23;
-    --red2:#ff3b30;
-
-    --green:#39ff88;
-    --blue:#32b5ff;
-    --yellow:#ffd166;
-
-    --border:rgba(255,255,255,.09);
-
-    --shadow:
-        0 25px 70px rgba(0,0,0,.55);
-
+:root {
+    --black: #07090e;
+    --panel: #0f131a;
+    --panel2: #151a24;
+    --white: #f4f5f6;
+    --grey: #9ca3aa;
+    --grey2: #69717a;
+    --accent: #2563eb; /* Corporate Tech Blue */
+    --accent-glow: rgba(37, 99, 235, 0.25);
+    --green: #10b981;
+    --border: rgba(255, 255, 255, 0.08);
+    --shadow: 0 25px 70px rgba(0, 0, 0, 0.55);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-html{
-    background:var(--black);
+html {
+    background: var(--black);
 }
 
-body{
-
-    font-family:
-
-        Inter,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    background:
-
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(227,27,35,.08),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 85% 10%,
-            rgba(50,181,255,.05),
-            transparent 25%
-        ),
-
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: 
+        radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 10%, rgba(16, 185, 129, 0.05), transparent 25%),
         var(--black);
-
-    color:var(--white);
-
-    overflow-x:hidden;
-
-    line-height:1.6;
-
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* =========================================================
-   DIGITAL GRID
-========================================================= */
-
-body::before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    opacity:.10;
-
-    background-image:
-
-        linear-gradient(
-            rgba(255,255,255,.035) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.035) 1px,
-            transparent 1px
-        );
-
-    background-size:60px 60px;
-
-    z-index:-2;
-
+/* Subtle Executive Grid Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
 }
 
-body::after{
-
-    content:"";
-
-    position:fixed;
-
-    left:0;
-    right:0;
-
-    height:2px;
-
-    top:-10px;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--red),
-            transparent
-        );
-
-    box-shadow:
-
-        0 0 25px var(--red);
-
-    opacity:.3;
-
-    animation:
-
-        screenScan 8s linear infinite;
-
-    pointer-events:none;
-
-    z-index:9999;
-
+.container {
+    width: min(1250px, 92%);
+    margin: auto;
 }
 
-@keyframes screenScan{
-
-    0%{
-        top:-10px;
-    }
-
-    100%{
-        top:100%;
-    }
-
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
-.container{
-
-    width:min(
-        1250px,
-        92%
-    );
-
-    margin:auto;
-
+section {
+    padding: 100px 0;
 }
-
-a{
-
-    color:inherit;
-
-    text-decoration:none;
-
-}
-
-button{
-
-    font-family:inherit;
-
-}
-
-section{
-
-    padding:110px 0;
-
-}
-
 
 /* =========================================================
    NAVIGATION
 ========================================================= */
-
-.navbar{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    height:74px;
-
-    z-index:1000;
-
-    background:
-
-        rgba(
-            5,
-            6,
-            7,
-            .88
-        );
-
-    backdrop-filter:
-
-        blur(18px);
-
-    border-bottom:
-
-        1px solid
-        var(--border);
-
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 74px;
+    z-index: 1000;
+    background: rgba(7, 9, 14, 0.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
 }
 
-.nav-inner{
-
-    height:100%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
+.nav-inner {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.brand-mark{
-
-    width:40px;
-    height:40px;
-
-    border:1px solid
-        rgba(
-            227,
-            27,
-            35,
-            .6
-        );
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:var(--red);
-
-    font-weight:900;
-
-    font-size:13px;
-
-    position:relative;
-
+.brand-mark {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(37, 99, 235, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-weight: 900;
+    font-size: 13px;
+    background: rgba(37, 99, 235, 0.05);
 }
 
-.brand-mark::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:5px;
-
-    border:1px solid
-        rgba(
-            227,
-            27,
-            35,
-            .3
-        );
-
+.brand-name {
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-.brand-name{
-
-    font-size:16px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
+.brand-name span {
+    color: var(--accent);
 }
 
-.brand-name span{
-
-    color:var(--red);
-
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
 }
 
-.nav-links{
-
-    display:flex;
-
-    gap:28px;
-
-    list-style:none;
-
+.nav-links a {
+    color: #b9bec4;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.3s;
 }
 
-.nav-links a{
-
-    color:#b9bec4;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
-    transition:.3s;
-
+.nav-links a:hover {
+    color: white;
 }
-
-.nav-links a:hover{
-
-    color:white;
-
-}
-
 
 /* =========================================================
-   HERO
+   HERO SECTION
 ========================================================= */
-
-.hero{
-
-    min-height:100vh;
-
-    padding-top:110px;
-
-    display:flex;
-
-    align-items:center;
-
-    position:relative;
-
+.hero {
+    min-height: 100vh;
+    padding-top: 110px;
+    display: flex;
+    align-items: center;
 }
 
-.hero-layout{
-
-    display:grid;
-
-    grid-template-columns:
-
-        1fr
-        1.15fr;
-
-    gap:60px;
-
-    align-items:center;
-
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 50px;
+    align-items: center;
 }
 
+.system-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 13px;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    background: rgba(16, 185, 129, 0.04);
+    color: #b8ffd2;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 12px var(--green);
+}
+
+.hero-label {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--accent);
+}
+
+.hero-role {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e1e4e7;
+    margin-bottom: 18px;
+}
+
+.hero-description {
+    color: var(--grey);
+    font-size: 15px;
+    max-width: 580px;
+    margin-bottom: 28px;
+}
+
+.hero-description strong {
+    color: #e7e9eb;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 22px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-blue {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-blue:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px var(--accent-glow);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    color: #d4d7da;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: white;
+}
 
 /* =========================================================
-   HERO TEXT
+   MANAGEMENT ANALYTICS DASHBOARD
 ========================================================= */
-
-.system-status{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:7px 13px;
-
-    border:1px solid
-        rgba(
-            57,
-            255,
-            136,
-            .25
-        );
-
-    background:
-        rgba(
-            57,
-            255,
-            136,
-            .04
-        );
-
-    color:#b8ffd2;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    font-weight:800;
-
-    margin-bottom:28px;
-
+.dashboard {
+    width: 100%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
 }
 
-.status-dot{
-
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:var(--green);
-
-    box-shadow:
-        0 0 12px
-        var(--green);
-
-    animation:
-        statusPulse 1.4s infinite;
-
+.dash-header {
+    padding: 15px 20px;
+    background: var(--panel2);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-@keyframes statusPulse{
-
-    50%{
-        opacity:.35;
-    }
-
+.dash-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
 }
 
-.hero-label{
-
-    color:var(--red);
-
-    font-size:12px;
-
-    letter-spacing:4px;
-
-    font-weight:900;
-
-    margin-bottom:15px;
-
+.dash-title-mark {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
 }
 
-.hero h1{
-
-    font-size:
-
-        clamp(
-            55px,
-            7vw,
-            94px
-        );
-
-    line-height:.88;
-
-    letter-spacing:-5px;
-
-    margin-bottom:25px;
-
+.dash-right {
+    font-size: 10px;
+    color: var(--grey2);
+    display: flex;
+    gap: 12px;
 }
 
-.hero h1 span{
-
-    color:var(--red);
-
+.analytics-content {
+    padding: 24px;
 }
 
-.hero-role{
-
-    font-size:21px;
-
-    font-weight:700;
-
-    color:#e1e4e7;
-
-    margin-bottom:18px;
-
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
-.hero-description{
-
-    color:var(--grey);
-
-    font-size:15px;
-
-    max-width:610px;
-
-    margin-bottom:28px;
-
+.kpi-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    padding: 18px;
+    border-radius: 4px;
 }
 
-.hero-description strong{
-
-    color:#e7e9eb;
-
+.kpi-label {
+    font-size: 10px;
+    color: var(--grey2);
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
 }
 
-.hero-buttons{
-
-    display:flex;
-
-    gap:12px;
-
-    flex-wrap:wrap;
-
+.kpi-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
 }
 
-.btn{
-
-    padding:13px 20px;
-
-    border-radius:3px;
-
-    font-size:11px;
-
-    font-weight:900;
-
-    letter-spacing:1px;
-
-    transition:.3s;
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
+.kpi-subtext {
+    font-size: 10px;
+    color: var(--green);
+    margin-top: 4px;
 }
 
-.btn-red{
-
-    background:var(--red);
-
-    color:white;
-
+.chart-area {
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 4px;
 }
 
-.btn-red:hover{
-
-    background:#ff242c;
-
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 10px 30px
-        rgba(
-            227,
-            27,
-            35,
-            .25
-        );
-
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
-.btn-outline{
-
-    border:
-        1px solid
-        var(--border);
-
-    color:#d4d7da;
-
+.chart-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--grey);
 }
 
-.btn-outline:hover{
-
-    border-color:var(--red);
-
-    color:white;
-
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    height: 120px;
+    padding-top: 10px;
 }
 
+.bar-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.bar {
+    width: 100%;
+    background: rgba(37, 99, 235, 0.3);
+    border: 1px solid var(--accent);
+    border-bottom: none;
+    transition: 0.3s;
+}
+
+.bar:hover {
+    background: var(--accent);
+}
+
+.bar-label {
+    font-size: 9px;
+    color: var(--grey2);
+}
 
 /* =========================================================
-   VEHICLE DASHBOARD
+   CARDS & GRID LAYOUTS
 ========================================================= */
-
-.vehicle-system{
-
-    min-height:570px;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
+.section-head {
+    margin-bottom: 45px;
 }
 
+.section-code {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.section-head h2 {
+    font-size: 38px;
+    margin-top: 8px;
+}
+
+.profile-grid, .career-grid, .project-grid, .skills-container, .cert-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.profile-grid { grid-template-columns: 1fr 1fr; }
+.career-grid { grid-template-columns: repeat(4, 1fr); }
+.project-grid { grid-template-columns: repeat(3, 1fr); }
+.skills-container { grid-template-columns: repeat(3, 1fr); }
+.cert-grid { grid-template-columns: repeat(3, 1fr); }
+
+.info-card, .career, .project, .skill-panel, .cert {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.career:hover, .project:hover {
+    transform: translateY(-4px);
+    border-color: rgba(37, 99, 235, 0.4);
+}
+
+.career-number, .project-id, .cert-label {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.info-card h3, .career h3, .project h3, .cert h3 {
+    font-size: 16px;
+    margin: 12px 0 8px;
+}
+
+.info-card p, .career p, .project p {
+    color: var(--grey);
+    font-size: 13px;
+}
+
+/* Project Tech Pills */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.tech {
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #c5cbd0;
+    font-size: 10px;
+}
 
 /* =========================================================
-   DASHBOARD FRAME
+   EDUCATION TIMELINE
 ========================================================= */
-
-.dashboard{
-
-    width:100%;
-
-    max-width:610px;
-
-    min-height:510px;
-
-    position:relative;
-
-    border:
-
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .11
-        );
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #11151a,
-            #07090b
-        );
-
-    box-shadow:
-
-        var(--shadow);
-
-    overflow:hidden;
-
+.timeline {
+    position: relative;
 }
 
-.dashboard::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        linear-gradient(
-            135deg,
-            transparent 45%,
-            rgba(
-                255,
-                255,
-                255,
-                .025
-            ) 50%,
-            transparent 55%
-        );
-
+.edu {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 30px;
+    margin-bottom: 24px;
 }
 
+.edu-year {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.edu-card {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+}
+
+.edu-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 8px;
+    border: 1px solid rgba(37, 99, 235, 0.3);
+    color: #93c5fd;
+    font-size: 10px;
+}
 
 /* =========================================================
-   DASHBOARD HEADER
+   CONTACT & FOOTER
 ========================================================= */
-
-.dash-header{
-
-    height:55px;
-
-    padding:
-        0 18px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    border-bottom:
-        1px solid
-        var(--border);
-
-}
-
-.dash-title{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-}
-
-.dash-title-mark{
-
-    width:8px;
-
-    height:8px;
-
-    background:var(--red);
-
-    box-shadow:
-        0 0 10px
-        var(--red);
-
-}
-
-.dash-right{
-
-    display:flex;
-
-    gap:14px;
-
-    color:var(--grey2);
-
-    font-size:9px;
-
-}
-
-
-/* =========================================================
-   DIGITAL MOTORCYCLE
-========================================================= */
-
-.bike-area{
-
-    height:285px;
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    overflow:hidden;
-
-}
-
-.road-grid{
-
-    position:absolute;
-
-    bottom:0;
-
-    width:100%;
-
-    height:150px;
-
-    background:
-
-        linear-gradient(
-            rgba(
-                255,
-                255,
-                255,
-                .035
-            ) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(
-                255,
-                255,
-                255,
-                .035
-            ) 1px,
-            transparent 1px
-        );
-
-    background-size:
-        35px 35px;
-
-    transform:
-        perspective(200px)
-        rotateX(55deg);
-
-    transform-origin:
-        bottom;
-
-    animation:
-        roadMove 1.4s
-        linear infinite;
-
-}
-
-@keyframes roadMove{
-
-    to{
-
-        background-position:
-            0 35px,
-            35px 0;
-
-    }
-
-}
-
-
-/* =========================================================
-   BIKE SVG
-========================================================= */
-
-.motorcycle{
-
-    width:460px;
-
-    max-width:90%;
-
-    position:relative;
-
-    z-index:3;
-
-    filter:
-        drop-shadow(
-            0 0 20px
-            rgba(
-                227,
-                27,
-                35,
-                .18
-            )
-        );
-
-}
-
-.bike-wheel{
-
-    fill:none;
-
-    stroke:#70767c;
-
-    stroke-width:7;
-
-}
-
-.bike-wheel-inner{
-
-    fill:none;
-
-    stroke:#282d32;
-
-    stroke-width:3;
-
-}
-
-.bike-frame{
-
-    fill:none;
-
-    stroke:#b8bdc2;
-
-    stroke-width:7;
-
-    stroke-linecap:round;
-
-    stroke-linejoin:round;
-
-}
-
-.bike-red{
-
-    fill:none;
-
-    stroke:var(--red);
-
-    stroke-width:8;
-
-    stroke-linecap:round;
-
-    stroke-linejoin:round;
-
-}
-
-.bike-engine{
-
-    fill:#171b20;
-
-    stroke:#777e85;
-
-    stroke-width:4;
-
-}
-
-.bike-light{
-
-    fill:var(--yellow);
-
-    filter:
-        drop-shadow(
-            0 0 12px
-            var(--yellow)
-        );
-
-}
-
-.bike-glow{
-
-    fill:none;
-
-    stroke:var(--red);
-
-    stroke-width:2;
-
-    opacity:.5;
-
-    stroke-dasharray:
-        10 10;
-
-    animation:
-        bikeData 2s
-        linear infinite;
-
-}
-
-@keyframes bikeData{
-
-    to{
-        stroke-dashoffset:-40;
-    }
-
-}
-
-
-/* =========================================================
-   DASHBOARD TELEMETRY
-========================================================= */
-
-.telemetry{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    border-top:
-        1px solid
-        var(--border);
-
-    border-bottom:
-        1px solid
-        var(--border);
-
-}
-
-.metric{
-
-    padding:
-        15px;
-
-    border-right:
-        1px solid
-        var(--border);
-
-}
-
-.metric:last-child{
-
-    border-right:none;
-
-}
-
-.metric-label{
-
-    color:var(--grey2);
-
-    font-size:8px;
-
-    letter-spacing:2px;
-
-    margin-bottom:5px;
-
-}
-
-.metric-value{
-
-    font-size:22px;
-
-    font-weight:900;
-
-}
-
-.metric-unit{
-
-    color:var(--grey2);
-
-    font-size:8px;
-
-    margin-left:3px;
-
-}
-
-.metric.red .metric-value{
-
-    color:var(--red);
-
-}
-
-.metric.green .metric-value{
-
-    color:var(--green);
-
-}
-
-
-/* =========================================================
-   SYSTEM MODULES
-========================================================= */
-
-.system-modules{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:8px;
-
-    padding:14px;
-
-}
-
-.module{
-
-    padding:12px 9px;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .025
-        );
-
-}
-
-.module-top{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin-bottom:8px;
-
-}
-
-.module-name{
-
-    font-size:8px;
-
-    color:#adb3b8;
-
-    letter-spacing:1px;
-
-}
-
-.module-status{
-
-    width:6px;
-
-    height:6px;
-
-    border-radius:50%;
-
-    background:var(--green);
-
-    box-shadow:
-        0 0 8px
-        var(--green);
-
-}
-
-.module-value{
-
-    font-size:12px;
-
-    font-weight:800;
-
-}
-
-
-/* =========================================================
-   DASHBOARD FOOTER
-========================================================= */
-
-.dash-footer{
-
-    position:absolute;
-
-    bottom:0;
-
-    left:0;
-
-    width:100%;
-
-    height:35px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:0 14px;
-
-    border-top:
-        1px solid
-        var(--border);
-
-    color:var(--grey2);
-
-    font-size:8px;
-
-    letter-spacing:1px;
-
-}
-
-
-/* =========================================================
-   SECTION HEADER
-========================================================= */
-
-.section-head{
-
-    margin-bottom:55px;
-
-}
-
-.section-code{
-
-    color:var(--red);
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:4px;
-
-}
-
-.section-head h2{
-
-    font-size:44px;
-
-    line-height:1;
-
-    margin-top:9px;
-
-}
-
-.section-head p{
-
-    color:var(--grey);
-
-    max-width:650px;
-
-    margin-top:14px;
-
-    font-size:14px;
-
-}
-
-
-/* =========================================================
-   PROFESSIONAL PROFILE
-========================================================= */
-
-.profile-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
-    gap:20px;
-
-}
-
-.info-card{
-
-    padding:32px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .025
-        );
-
-    border:
-        1px solid
-        var(--border);
-
-    position:relative;
-
-}
-
-.info-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    top:0;
-
-    width:3px;
-
-    height:40px;
-
-    background:var(--red);
-
-}
-
-.info-card h3{
-
-    font-size:20px;
-
-    margin-bottom:15px;
-
-}
-
-.info-card p{
-
-    color:var(--grey);
-
-    font-size:14px;
-
-}
-
-.highlight{
-
-    color:var(--red);
-
-}
-
-
-/* =========================================================
-   AUTOMOTIVE CAREER
-========================================================= */
-
-.career-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:12px;
-
-}
-
-.career{
-
-    min-height:190px;
-
-    padding:25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #101419,
-            #090b0e
-        );
-
-    border:
-        1px solid
-        var(--border);
-
-    transition:.3s;
-
-}
-
-.career:hover{
-
-    transform:
-        translateY(-6px);
-
-    border-color:
-        rgba(
-            227,
-            27,
-            35,
-            .45
-        );
-
-}
-
-.career-number{
-
-    color:var(--red);
-
-    font-size:10px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-}
-
-.career h3{
-
-    font-size:16px;
-
-    margin:
-        18px 0 9px;
-
-}
-
-.career p{
-
-    color:var(--grey);
-
-    font-size:12px;
-
-}
-
-
-/* =========================================================
-   EDUCATION
-========================================================= */
-
-.timeline{
-
-    max-width:1000px;
-
-    position:relative;
-
-}
-
-.timeline::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:130px;
-
-    top:0;
-
-    bottom:0;
-
-    width:1px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .1
-        );
-
-}
-
-.edu{
-
-    display:grid;
-
-    grid-template-columns:
-        110px
-        1fr;
-
-    gap:40px;
-
-    margin-bottom:28px;
-
-    position:relative;
-
-}
-
-.edu::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:125px;
-
-    top:7px;
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:var(--red);
-
-    box-shadow:
-        0 0 12px
-        rgba(
-            227,
-            27,
-            35,
-            .7
-        );
-
-}
-
-.edu-year{
-
-    color:var(--red);
-
-    font-size:11px;
-
-    font-weight:900;
-
-}
-
-.edu-card{
-
-    padding:24px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .025
-        );
-
-    border:
-        1px solid
-        var(--border);
-
-}
-
-.edu-card h3{
-
-    font-size:18px;
-
-    margin-bottom:5px;
-
-}
-
-.edu-card p{
-
-    color:var(--grey);
-
-    font-size:13px;
-
-}
-
-.edu-tag{
-
-    display:inline-block;
-
-    margin-top:12px;
-
-    padding:5px 9px;
-
-    border:
-        1px solid
-        rgba(
-            227,
-            27,
-            35,
-            .25
-        );
-
-    color:#ff8b8f;
-
-    font-size:9px;
-
-    letter-spacing:1px;
-
-}
-
-
-/* =========================================================
-   PROJECTS
-========================================================= */
-
-.project-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-
-}
-
-.project{
-
-    min-height:330px;
-
-    padding:27px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #101419,
-            #080a0d
-        );
-
-    border:
-        1px solid
-        var(--border);
-
-    display:flex;
-
-    flex-direction:column;
-
-    transition:.3s;
-
-}
-
-.project:hover{
-
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(
-            227,
-            27,
-            35,
-            .35
-        );
-
-}
-
-.project-id{
-
-    color:var(--red);
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    font-weight:900;
-
-}
-
-.project h3{
-
-    font-size:19px;
-
-    margin:
-        18px 0 12px;
-
-}
-
-.project p{
-
-    color:var(--grey);
-
-    font-size:13px;
-
-}
-
-.project-tech{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:6px;
-
-    margin-top:auto;
-
-    padding-top:25px;
-
-}
-
-.tech{
-
-    padding:5px 8px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .05
-        );
-
-    color:#c5cbd0;
-
-    font-size:9px;
-
+.contact-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 20px;
 }
 
-
-/* =========================================================
-   SKILLS
-========================================================= */
-
-.skills-container{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:20px;
-
-}
-
-.skill-panel{
-
-    padding:27px;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .025
-        );
-
-}
-
-.skill-panel h3{
-
-    font-size:14px;
-
-    margin-bottom:20px;
-
-}
-
-.skill-row{
-
-    margin-bottom:17px;
-
-}
-
-.skill-title{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font-size:10px;
-
-    margin-bottom:6px;
-
-    color:#cbd0d5;
-
-}
-
-.skill-bar{
-
-    height:4px;
-
-    background:#1a1e22;
-
-    overflow:hidden;
-
-}
-
-.skill-progress{
-
-    height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--red),
-            #ff555c
-        );
-
-}
-
-
-/* =========================================================
-   CERTIFICATIONS
-========================================================= */
-
-.cert-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:12px;
-
-}
-
-.cert{
-
-    padding:22px;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .025
-        );
-
-}
-
-.cert-label{
-
-    color:var(--red);
-
-    font-size:9px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    margin-bottom:10px;
-
-}
-
-.cert h3{
-
-    font-size:14px;
-
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-layout{
-
-    display:grid;
-
-    grid-template-columns:
-        .8fr
-        1.2fr;
-
-    gap:20px;
-
-}
-
-.contact-intro{
-
-    padding:35px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #111419,
-            #090b0e
-        );
-
-    border:
-        1px solid
-        var(--border);
-
-}
-
-.contact-intro h3{
-
-    font-size:28px;
-
-    margin-bottom:15px;
-
-}
-
-.contact-intro p{
-
-    color:var(--grey);
-
-    font-size:14px;
-
-}
-
-.contact-list{
-
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:10px;
-
+.contact-card {
+    padding: 20px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
 }
 
-.contact-card{
-
-    padding:20px;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .025
-        );
-
-}
-
-.contact-label{
-
-    color:var(--grey2);
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    margin-bottom:5px;
-
-}
-
-.contact-card a,
-.contact-card p{
-
-    font-size:12px;
-
-    color:#d8dde1;
-
-    word-break:break-word;
-
-}
-
-.contact-card a:hover{
-
-    color:var(--red);
-
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer{
-
-    padding:35px 0;
-
-    border-top:
-        1px solid
-        var(--border);
-
-    color:var(--grey2);
-
-    font-size:10px;
-
-    letter-spacing:1px;
-
-    text-align:center;
-
+footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    color: var(--grey2);
+    font-size: 11px;
+    text-align: center;
 }
-
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
-
-@media(max-width:1000px){
-
-    .hero-layout{
-
-        grid-template-columns:1fr;
-
+@media(max-width: 900px) {
+    .hero-layout, .profile-grid, .career-grid, .project-grid, .skills-container, .cert-grid, .contact-layout {
+        grid-template-columns: 1fr;
     }
-
-    .vehicle-system{
-
-        order:-1;
-
-    }
-
-    .career-grid{
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
+    .nav-links { display: none; }
+    .edu { grid-template-columns: 1fr; gap: 8px; }
 }
-
-@media(max-width:700px){
-
-    section{
-
-        padding:75px 0;
-
-    }
-
-    .nav-links{
-
-        display:none;
-
-    }
-
-    .hero{
-
-        padding-top:100px;
-
-    }
-
-    .hero h1{
-
-        font-size:58px;
-
-        letter-spacing:-3px;
-
-    }
-
-    .hero-role{
-
-        font-size:18px;
-
-    }
-
-    .dashboard{
-
-        min-height:460px;
-
-    }
-
-    .bike-area{
-
-        height:240px;
-
-    }
-
-    .motorcycle{
-
-        width:400px;
-
-    }
-
-    .telemetry{
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-    .metric{
-
-        border-bottom:
-            1px solid
-            var(--border);
-
-    }
-
-    .system-modules{
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-    .career-grid,
-    .profile-grid,
-    .project-grid,
-    .skills-container,
-    .cert-grid,
-    .contact-layout{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .contact-list{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .timeline::before{
-
-        display:none;
-
-    }
-
-    .edu{
-
-        grid-template-columns:1fr;
-
-        gap:7px;
-
-    }
-
-    .edu::before{
-
-        display:none;
-
-    }
-
-    .section-head h2{
-
-        font-size:35px;
-
-    }
-
-}
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- ======================================================
-     NAVIGATION
-====================================================== -->
-
+<!-- NAVIGATION -->
 <header class="navbar">
-
-<div class="container nav-inner">
-
-<a href="#home" class="brand">
-
-<div class="brand-mark">
-CP
-</div>
-
-<div class="brand-name">
-CHANDRA<span>.</span>
-</div>
-
-</a>
-
-
-<ul class="nav-links">
-
-<li>
-<a href="#home">
-SYSTEM
-</a>
-</li>
-
-<li>
-<a href="#about">
-PROFILE
-</a>
-</li>
-
-<li>
-<a href="#career">
-CAREER
-</a>
-</li>
-
-<li>
-<a href="#education">
-EDUCATION
-</a>
-</li>
-
-<li>
-<a href="#projects">
-PROJECTS
-</a>
-</li>
-
-<li>
-<a href="#skills">
-SKILLS
-</a>
-</li>
-
-<li>
-<a href="#contact">
-CONTACT
-</a>
-</li>
-
-</ul>
-
-</div>
-
+    <div class="container nav-inner">
+        <a href="#home" class="brand">
+            <div class="brand-mark">CP</div>
+            <div class="brand-name">CHANDRA<span>.</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#home">OVERVIEW</a></li>
+            <li><a href="#about">PROFILE</a></li>
+            <li><a href="#career">CAREER</a></li>
+            <li><a href="#education">EDUCATION</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </div>
 </header>
 
-
-<!-- ======================================================
-     HERO
-====================================================== -->
-
+<!-- HERO -->
 <section class="hero" id="home">
-
-<div class="container hero-layout">
-
-
-<!-- LEFT -->
-
-<div>
-
-<div class="system-status">
-
-<span class="status-dot"></span>
-
-AUTOMOTIVE DIGITAL SYSTEM
-ONLINE
-
-</div>
-
-
-<div class="hero-label">
-
-MBA • ENGINEERING • ANALYTICS
-
-</div>
-
-
-<h1>
-
-Chandramohan
-<br>
-
-<span>P.</span>
-
-</h1>
-
-
-<div class="hero-role">
-
-MBA Student &nbsp;|&nbsp;
-B.E. Computer Science Engineer
-
-</div>
-
-
-<p class="hero-description">
-
-Computer Science Engineering graduate currently pursuing an
-<strong>MBA at Saveetha Engineering College</strong>.
-
-Building a career at the intersection of
-<strong>automotive business, analytics, technology and management</strong>.
-
-Interested in Automotive Business Analysis, Data Analytics,
-Business Intelligence and Digital Transformation.
-
-</p>
-
-
-<div class="hero-buttons">
-
-<a
-href="#contact"
-class="btn btn-red"
->
-
-CONTACT
-
-</a>
-
-
-<a
-href="resume.pdf"
-class="btn btn-outline"
-download
->
-
-DOWNLOAD RESUME
-
-</a>
-
-
-<a
-href="#career"
-class="btn btn-outline"
->
-
-CAREER SYSTEM
-
-</a>
-
-</div>
-
-</div>
-
-
-<!-- RIGHT -->
-
-<div class="vehicle-system">
-
-
-<div class="dashboard">
-
-
-<!-- HEADER -->
-
-<div class="dash-header">
-
-<div class="dash-title">
-
-<div class="dash-title-mark"></div>
-
-VEHICLE INTELLIGENCE SYSTEM
-
-</div>
-
-<div class="dash-right">
-
-<span>ECU</span>
-
-<span>CAN</span>
-
-<span>GPS</span>
-
-<span>v1.0</span>
-
-</div>
-
-</div>
-
-
-<!-- BIKE -->
-
-<div class="bike-area">
-
-<div class="road-grid"></div>
-
-
-<!-- DIGITAL MOTORCYCLE -->
-
-<svg
-class="motorcycle"
-viewBox="0 0 700 330"
-xmlns="http://www.w3.org/2000/svg"
->
-
-<!-- rear wheel -->
-
-<circle
-cx="145"
-cy="245"
-r="70"
-class="bike-wheel"
-/>
-
-<circle
-cx="145"
-cy="245"
-r="52"
-class="bike-wheel-inner"
-/>
-
-
-<!-- front wheel -->
-
-<circle
-cx="555"
-cy="245"
-r="70"
-class="bike-wheel"
-/>
-
-<circle
-cx="555"
-cy="245"
-r="52"
-class="bike-wheel-inner"
-/>
-
-
-<!-- frame -->
-
-<path
-d="M145 245
-L240 165
-L360 220
-L145 245
-M240 165
-L350 160
-L430 220
-L360 220
-M350 160
-L405 120
-L480 140
-L555 245"
-class="bike-frame"
-/>
-
-
-<!-- red tank -->
-
-<path
-d="M260 150
-C285 105 365 95 415 125
-L430 165
-L350 180
-L275 170
-Z"
-class="bike-red"
-/>
-
-
-<!-- engine -->
-
-<rect
-x="285"
-y="190"
-width="105"
-height="70"
-rx="12"
-class="bike-engine"
-/>
-
-
-<!-- engine lines -->
-
-<path
-d="M300 205 L375 205
-M300 220 L375 220
-M300 235 L375 235"
-stroke="#555"
-stroke-width="3"
-/>
-
-
-<!-- front fork -->
-
-<path
-d="M475 140
-L555 245
-M500 140
-L555 245"
-class="bike-frame"
-/>
-
-
-<!-- handle -->
-
-<path
-d="M465 125
-L520 115
-L550 130"
-class="bike-frame"
-/>
-
-
-<!-- headlight -->
-
-<circle
-cx="520"
-cy="145"
-r="15"
-class="bike-light"
-/>
-
-
-<!-- seat -->
-
-<path
-d="M270 140
-L375 135"
-stroke="#20252a"
-stroke-width="17"
-stroke-linecap="round"
-/>
-
-
-<!-- exhaust -->
-
-<path
-d="M350 250
-L470 270
-L520 255"
-stroke="#70777d"
-stroke-width="12"
-fill="none"
-stroke-linecap="round"
-/>
-
-
-<!-- digital energy -->
-
-<path
-d="M125 245
-L240 165
-L360 220
-L555 245"
-class="bike-glow"
-/>
-
-</svg>
-
-</div>
-
-
-<!-- TELEMETRY -->
-
-<div class="telemetry">
-
-
-<div class="metric red">
-
-<div class="metric-label">
-SPEED
-</div>
-
-<div class="metric-value">
-
-87
-
-<span class="metric-unit">
-KM/H
-</span>
-
-</div>
-
-</div>
-
-
-<div class="metric">
-
-<div class="metric-label">
-RPM
-</div>
-
-<div class="metric-value">
-
-3.8
-
-<span class="metric-unit">
-K
-</span>
-
-</div>
-
-</div>
-
-
-<div class="metric green">
-
-<div class="metric-label">
-SYSTEM
-</div>
-
-<div class="metric-value">
-
-98
-
-<span class="metric-unit">
-%
-</span>
-
-</div>
-
-</div>
-
-
-<div class="metric">
-
-<div class="metric-label">
-RANGE
-</div>
-
-<div class="metric-value">
-
-214
-
-<span class="metric-unit">
-KM
-</span>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<!-- MODULES -->
-
-<div class="system-modules">
-
-
-<div class="module">
-
-<div class="module-top">
-
-<span class="module-name">
-ENGINE
-</span>
-
-<span class="module-status"></span>
-
-</div>
-
-<div class="module-value">
-OPTIMAL
-</div>
-
-</div>
-
-
-<div class="module">
-
-<div class="module-top">
-
-<span class="module-name">
-ECU
-</span>
-
-<span class="module-status"></span>
-
-</div>
-
-<div class="module-value">
-ONLINE
-</div>
-
-</div>
-
-
-<div class="module">
-
-<div class="module-top">
-
-<span class="module-name">
-ABS
-</span>
-
-<span class="module-status"></span>
-
-</div>
-
-<div class="module-value">
-ACTIVE
-</div>
-
-</div>
-
-
-<div class="module">
-
-<div class="module-top">
-
-<span class="module-name">
-GPS
-</span>
-
-<span class="module-status"></span>
-
-</div>
-
-<div class="module-value">
-LOCKED
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="dash-footer">
-
-<span>
-VEHICLE TELEMETRY
-</span>
-
-<span>
-SYSTEM ID: CP-2026
-</span>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="container hero-layout">
+        <div>
+            <div class="system-status">
+                <span class="status-dot"></span>
+                MANAGEMENT & ANALYTICS PORTFOLIO
+            </div>
+            <div class="hero-label">MBA • COMPUTER SCIENCE • ANALYTICS</div>
+            <h1>Chandramohan <span>P.</span></h1>
+            <div class="hero-role">MBA Candidate (1st Year) &nbsp;|&nbsp; B.E. Computer Science Graduate</div>
+            <p class="hero-description">
+                First-year <strong>MBA candidate at Saveetha Engineering College</strong> with a strong foundation in <strong>B.E. Computer Science</strong>. Bridging technical architecture with strategic business insights to drive data-informed decision-making.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-blue">CONNECT WITH ME</a>
+                <a href="#projects" class="btn btn-outline">VIEW PROJECTS</a>
+            </div>
+        </div>
+
+        <!-- RIGHT: EXECUTIVE DASHBOARD -->
+        <div class="dashboard">
+            <div class="dash-header">
+                <div class="dash-title">
+                    <div class="dash-title-mark"></div>
+                    EXECUTIVE DECISION DASHBOARD
+                </div>
+                <div class="dash-right">
+                    <span>ANALYTICS v2.6</span>
+                </div>
+            </div>
+            <div class="analytics-content">
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-label">UG ACADEMIC SCORE</div>
+                        <div class="kpi-value">7.96</div>
+                        <div class="kpi-subtext">CGPA | B.E. CSE</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">MBA PROGRAM</div>
+                        <div class="kpi-value">2026–28</div>
+                        <div class="kpi-subtext">Saveetha Eng. College</div>
+                    </div>
+                </div>
+
+                <div class="chart-area">
+                    <div class="chart-header">
+                        <span class="chart-title">CORE SKILL PROFILE DISTRIBUTION</span>
+                    </div>
+                    <div class="bar-chart">
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 85%;"></div>
+                            <span class="bar-label">Analytics</span>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 90%;"></div>
+                            <span class="bar-label">ML & Python</span>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 75%;"></div>
+                            <span class="bar-label">Strategy</span>
+                        </div>
+                        <div class="bar-wrapper">
+                            <div class="bar" style="height: 80%;"></div>
+                            <span class="bar-label">Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<!-- ======================================================
-     ABOUT
-====================================================== -->
-
+<!-- PROFILE -->
 <section id="about">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<div class="section-code">
-01 / PROFILE
-</div>
-
-<h2>
-ENGINEERING × BUSINESS
-</h2>
-
-<p>
-A technical foundation combined with management and analytical
-thinking.
-</p>
-
-</div>
-
-
-<div class="profile-grid">
-
-
-<div class="info-card">
-
-<h3>
-Engineering Foundation
-</h3>
-
-<p>
-
-I completed my
-<span class="highlight">
-B.E. Computer Science and Engineering
-</span>
-at Saveetha School of Engineering.
-
-My technical background includes programming,
-machine learning, data analysis and software technologies.
-
-</p>
-
-</div>
-
-
-<div class="info-card">
-
-<h3>
-Management Direction
-</h3>
-
-<p>
-
-I am currently pursuing my
-<span class="highlight">
-Master of Business Administration
-</span>
-at Saveetha Engineering College.
-
-My goal is to combine technical knowledge with
-business analysis, management and decision-making.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
+    <div class="container">
+        <div class="section-head">
+            <div class="section-code">01 / PROFILE</div>
+            <h2>ENGINEERING MEETS BUSINESS</h2>
+        </div>
+        <div class="profile-grid">
+            <div class="info-card">
+                <h3>Technical Foundation</h3>
+                <p>Graduated with a B.E. in Computer Science & Engineering. Hands-on expertise in Python, Machine Learning, System Design, SQL, and DevOps tools.</p>
+            </div>
+            <div class="info-card">
+                <h3>Management Vision</h3>
+                <p>Currently pursuing MBA (1st Year) to build advanced expertise in business strategy, product management, corporate leadership, and market analytics.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<!-- ======================================================
-     CAREER
-====================================================== -->
-
+<!-- CAREER -->
 <section id="career">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<div class="section-code">
-02 / CAREER SYSTEM
-</div>
-
-<h2>
-AUTOMOTIVE CAREER DIRECTION
-</h2>
-
-<p>
-Roles where technology, data and business management intersect.
-</p>
-
-</div>
-
-
-<div class="career-grid">
-
-
-<div class="career">
-
-<div class="career-number">
-ROLE 01
-</div>
-
-<h3>
-Automotive Business Analyst
-</h3>
-
-<p>
-Business requirements, vehicle data, process analysis,
-reporting and strategic decision support.
-</p>
-
-</div>
-
-
-<div class="career">
-
-<div class="career-number">
-ROLE 02
-</div>
-
-<h3>
-Automotive Data Analyst
-</h3>
-
-<p>
-Using SQL, Excel, Power BI and data analytics to understand
-vehicle and business performance.
-</p>
-
-</div>
-
-
-<div class="career">
-
-<div class="career-number">
-ROLE 03
-</div>
-
-<h3>
-Business Intelligence Analyst
-</h3>
-
-<p>
-Building dashboards, KPIs and analytical reports for
-management decision-making.
-</p>
-
-</div>
-
-
-<div class="career">
-
-<div class="career-number">
-ROLE 04
-</div>
-
-<h3>
-Digital Transformation
-</h3>
-
-<p>
-Applying technology and analytics to improve automotive
-business processes and customer experiences.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
+    <div class="container">
+        <div class="section-head">
+            <div class="section-code">02 / CAREER GOALS</div>
+            <h2>TARGET ROLES</h2>
+        </div>
+        <div class="career-grid">
+            <div class="career">
+                <div class="career-number">ROLE 01</div>
+                <h3>Business Analyst</h3>
+                <p>Analyzing requirements, optimizing business processes, and delivering actionable operational metrics.</p>
+            </div>
+            <div class="career">
+                <div class="career-number">ROLE 02</div>
+                <h3>Data & Analytics Lead</h3>
+                <p>Leveraging SQL, Python, and BI frameworks to extract high-value insights from enterprise data.</p>
+            </div>
+            <div class="career">
+                <div class="career-number">ROLE 03</div>
+                <h3>Product Manager</h3>
+                <p>Bridging customer requirements with software engineering teams to deliver technological products.</p>
+            </div>
+            <div class="career">
+                <div class="career-number">ROLE 04</div>
+                <h3>Tech Consultant</h3>
+                <p>Advising organizations on digital transformation, system integrations, and software efficiency.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<!-- ======================================================
-     EDUCATION
-====================================================== -->
-
+<!-- EDUCATION -->
 <section id="education">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<div class="section-code">
-03 / EDUCATION
-</div>
-
-<h2>
-ACADEMIC SYSTEM
-</h2>
-
-</div>
-
-
-<div class="timeline">
-
-
-<div class="edu">
-
-<div class="edu-year">
-2026–2028
-</div>
-
-<div class="edu-card">
-
-<h3>
-Master of Business Administration
-</h3>
-
-<p>
-Saveetha Engineering College, Chennai
-</p>
-
-<span class="edu-tag">
-CURRENTLY PURSUING
-</span>
-
-</div>
-
-</div>
-
-
-<div class="edu">
-
-<div class="edu-year">
-2022–2026
-</div>
-
-<div class="edu-card">
-
-<h3>
-B.E. Computer Science & Engineering
-</h3>
-
-<p>
-Saveetha School of Engineering, Chennai
-</p>
-
-<span class="edu-tag">
-CGPA 7.96
-</span>
-
-</div>
-
-</div>
-
-
-<div class="edu">
-
-<div class="edu-year">
-12TH
-</div>
-
-<div class="edu-card">
-
-<h3>
-Higher Secondary Education
-</h3>
-
-<p>
-Velammal Vidyalaya
-</p>
-
-<span class="edu-tag">
-65%
-</span>
-
-</div>
-
-</div>
-
-
-<div class="edu">
-
-<div class="edu-year">
-10TH
-</div>
-
-<div class="edu-card">
-
-<h3>
-Secondary School Education
-</h3>
-
-<p>
-Vivekananda Vidyalaya
-</p>
-
-<span class="edu-tag">
-85%
-</span>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
+    <div class="container">
+        <div class="section-head">
+            <div class="section-code">03 / ACADEMICS</div>
+            <h2>EDUCATION</h2>
+        </div>
+        <div class="timeline">
+            <div class="edu">
+                <div class="edu-year">2026 – 2028</div>
+                <div class="edu-card">
+                    <h3>Master of Business Administration (MBA)</h3>
+                    <p>Saveetha Engineering College, Chennai</p>
+                    <span class="edu-tag">1st Year — Pursuing</span>
+                </div>
+            </div>
+            <div class="edu">
+                <div class="edu-year">GRADUATED</div>
+                <div class="edu-card">
+                    <h3>B.E. Computer Science & Engineering</h3>
+                    <p>Saveetha School of Engineering, Chennai</p>
+                    <span class="edu-tag">CGPA: 7.96</span>
+                </div>
+            </div>
+            <div class="edu">
+                <div class="edu-year">CLASS XII</div>
+                <div class="edu-card">
+                    <h3>Higher Secondary Education (HSC)</h3>
+                    <p>Shepherds Matriculation Higher Secondary School</p>
+                    <span class="edu-tag">Percentage: 65%</span>
+                </div>
+            </div>
+            <div class="edu">
+                <div class="edu-year">CLASS X</div>
+                <div class="edu-card">
+                    <h3>Secondary School (SSLC)</h3>
+                    <p>Bharathi Vidhya Mandir</p>
+                    <span class="edu-tag">Percentage: 89%</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<!-- ======================================================
-     PROJECTS
-====================================================== -->
-
+<!-- PROJECTS -->
 <section id="projects">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<div class="section-code">
-04 / PROJECTS
-</div>
-
-<h2>
-ENGINEERING PROJECTS
-</h2>
-
-<p>
-Selected projects demonstrating technical implementation,
-research and problem solving.
-</p>
-
-</div>
-
-
-<div class="project-grid">
-
-
-<div class="project">
-
-<div class="project-id">
-PROJECT 01
-</div>
-
-<h3>
-Random Forest vs Decision Tree
-</h3>
-
-<p>
-
-Comparative analysis of machine learning algorithms
-for melanoma diagnosis using image datasets and
-performance evaluation.
-
-</p>
-
-<div class="project-tech">
-
-<span class="tech">PYTHON</span>
-<span class="tech">SCIKIT-LEARN</span>
-<span class="tech">TENSORFLOW</span>
-<span class="tech">KERAS</span>
-<span class="tech">ML</span>
-
-</div>
-
-</div>
-
-
-<div class="project">
-
-<div class="project-id">
-PROJECT 02
-</div>
-
-<h3>
-Push-Up Counter
-</h3>
-
-<p>
-
-An embedded system capable of automatically counting
-push-ups using an ultrasonic sensor and Arduino
-for real-time feedback.
-
-</p>
-
-<div class="project-tech">
-
-<span class="tech">ARDUINO</span>
-<span class="tech">SENSORS</span>
-<span class="tech">EMBEDDED</span>
-<span class="tech">TINKERCAD</span>
-
-</div>
-
-</div>
-
-
-<div class="project">
-
-<div class="project-id">
-PROJECT 03
-</div>
-
-<h3>
-Symmetric Encryption Optimization
-</h3>
-
-<p>
-
-Performance analysis of Blowfish and ChaCha20 encryption
-algorithms for secure software applications.
-
-Presented at ICCI'25.
-
-</p>
-
-<div class="project-tech">
-
-<span class="tech">BLOWFISH</span>
-<span class="tech">CHACHA20</span>
-<span class="tech">SECURITY</span>
-<span class="tech">ICCI'25</span>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
+    <div class="container">
+        <div class="section-head">
+            <div class="section-code">04 / PROJECTS</div>
+            <h2>TECHNICAL ACCOMPLISHMENTS</h2>
+        </div>
+        <div class="project-grid">
+            <div class="project">
+                <div class="project-id">RESEARCH & ML</div>
+                <h3>Random Forest vs. Decision Tree Melanoma Analysis</h3>
+                <p>Designed a comparative machine learning framework to evaluate diagnostic accuracy and precision metrics across image datasets.</p>
+                <div class="project-tech">
+                    <span class="tech">Python</span>
+                    <span class="tech">scikit-learn</span>
+                    <span class="tech">TensorFlow</span>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-id">HARDWARE & IOT</div>
+                <h3>Automated Push-Up Counter</h3>
+                <p>Built a real-time IoT fitness monitoring device using ultrasonic sensors to eliminate manual tracking and optimize exercise analytics.</p>
+                <div class="project-tech">
+                    <span class="tech">Arduino</span>
+                    <span class="tech">Ultrasonic Sensor</span>
+                </div>
+            </div>
+            <div class="project">
+                <div class="project-id">CONFERENCE PAPER</div>
+                <h3>Symmetric Encryption Analysis (ICCI'25)</h3>
+                <p>Published research benchmarking Blowfish and ChaCha20 algorithms to evaluate execution speed and security overhead in software apps.</p>
+                <div class="project-tech">
+                    <span class="tech">Cybersecurity</span>
+                    <span class="tech">System Performance</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-<!-- ======================================================
-     SKILLS
-====================================================== -->
-
-<section id="skills">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<div class="section-code">
-05 / SKILL MATRIX
-</div>
-
-<h2>
-TECHNICAL CAPABILITY
-</h2>
-
-</div>
-
-
-<div class="skills-container">
-
-
-<div class="skill-panel">
-
-<h3>
-DATA & BUSINESS
-</h3>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>SQL</span>
-<span>80%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:80%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Excel</span>
-<span>82%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:82%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Power BI</span>
-<span>70%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:70%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Data Analysis</span>
-<span>78%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:78%"
-></div>
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="skill-panel">
-
-<h3>
-PROGRAMMING & AI
-</h3>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Python</span>
-<span>80%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:80%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Machine Learning</span>
-<span>72%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:72%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>TensorFlow</span>
-<span>65%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:65%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Git / GitHub</span>
-<span>78%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:78%"
-></div>
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="skill-panel">
-
-<h3>
-PROFESSIONAL
-</h3>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Problem Solving</span>
-<span>88%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:88%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Critical Thinking</span>
-<span>85%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:85%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Teamwork</span>
-<span>88%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:88%"
-></div>
-</div>
-
-</div>
-
-
-<div class="skill-row">
-
-<div class="skill-title">
-<span>Communication</span>
-<span>78%</span>
-</div>
-
-<div class="skill-bar">
-<div
-class="skill-progress"
-style="width:78%"
-></div>
-</div>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ======================================================
-     CERTIFICATIONS
-====================================================== -->
-
-<section>
-
-<div class="container">
-
-
-<div class="section-head">
-
-<div class="section-code">
-06 / CERTIFICATIONS
-</div>
-
-<h2>
-LEARNING LOG
-</h2>
-
-</div>
-
-
-<div class="cert-grid">
-
-
-<div class="cert">
-
-<div class="cert-label">
-PROGRAMMING
-</div>
-
-<h3>
-Python Programming Mastery
-</h3>
-
-</div>
-
-
-<div class="cert">
-
-<div class="cert-label">
-DEVOPS
-</div>
-
-<h3>
-Docker Essentials and Hands-on DevOps
-</h3>
-
-</div>
-
-
-<div class="cert">
-
-<div class="cert-label">
-AI
-</div>
-
-<h3>
-Deep Learning
-</h3>
-
-</div>
-
-
-<div class="cert">
-
-<div class="cert-label">
-DATA
-</div>
-
-<h3>
-Machine Learning
-</h3>
-
-</div>
-
-
-<div class="cert">
-
-<div class="cert-label">
-WEB
-</div>
-
-<h3>
-Django Framework
-</h3>
-
-</div>
-
-
-<div class="cert">
-
-<div class="cert-label">
-SECURITY
-</div>
-
-<h3>
-Web Hacking
-</h3>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ======================================================
-     CONTACT
-====================================================== -->
-
+<!-- CONTACT -->
 <section id="contact">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<div class="section-code">
-07 / COMMUNICATION
-</div>
-
-<h2>
-CONNECT WITH ME
-</h2>
-
-<p>
-For internships, projects, business analytics and
-technology opportunities.
-</p>
-
-</div>
-
-
-<div class="contact-layout">
-
-
-<div class="contact-intro">
-
-<h3>
-Ready to connect.
-</h3>
-
-<p>
-
-I am interested in opportunities where I can combine
-my Computer Science background with MBA knowledge,
-business analytics and automotive technology.
-
-</p>
-
-<br>
-
-<a
-href="resume.pdf"
-class="btn btn-red"
-download
->
-
-DOWNLOAD CV
-
-</a>
-
-</div>
-
-
-<div class="contact-list">
-
-
-<div class="contact-card">
-
-<div class="contact-label">
-EMAIL
-</div>
-
-<a href="mailto:chandramohanpv18@gmail.com">
-
-chandramohanpv18@gmail.com
-
-</a>
-
-</div>
-
-
-<div class="contact-card">
-
-<div class="contact-label">
-PHONE
-</div>
-
-<a href="tel:+919840319282">
-
-+91 98403 19282
-
-</a>
-
-</div>
-
-
-<div class="contact-card">
-
-<div class="contact-label">
-GITHUB
-</div>
-
-<a
-href="https://github.com/"
-target="_blank"
->
-
-GitHub Profile
-
-</a>
-
-</div>
-
-
-<div class="contact-card">
-
-<div class="contact-label">
-LINKEDIN
-</div>
-
-<a
-href="https://www.linkedin.com/"
-target="_blank"
->
-
-LinkedIn Profile
-
-</a>
-
-</div>
-
-
-<div class="contact-card">
-
-<div class="contact-label">
-LOCATION
-</div>
-
-<p>
-Chennai, Tamil Nadu, India
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="container">
+        <div class="contact-layout">
+            <div>
+                <div class="section-code">05 / CONTACT</div>
+                <h2>GET IN TOUCH</h2>
+                <p style="color: var(--grey); margin-top: 10px;">Available for MBA internships, analytics projects, and leadership roles.</p>
+            </div>
+            <div class="contact-card">
+                <p><strong>Phone:</strong> +91 98403 19282</p>
+                <p style="margin-top: 10px;"><strong>Email:</strong> chandramohanpv18@gmail.com</p>
+                <p style="margin-top: 10px;"><strong>Location:</strong> Arumbakkam, Chennai – 600076</p>
+            </div>
+        </div>
+    </div>
 </section>
-
-
-<!-- ======================================================
-     FOOTER
-====================================================== -->
 
 <footer>
-
-<div class="container">
-
-<p>
-
-CHANDRAMOHAN P
-&nbsp;•&nbsp;
-MBA
-&nbsp;•&nbsp;
-B.E. COMPUTER SCIENCE ENGINEERING
-
-</p>
-
-<p style="margin-top:8px">
-
-© 2026 — AUTOMOTIVE TECHNOLOGY & BUSINESS ANALYTICS
-
-</p>
-
-</div>
-
+    <div class="container">
+        <p>&copy; 2026 Chandramohan P. All Rights Reserved.</p>
+    </div>
 </footer>
-
 
 </body>
 </html>
-```
