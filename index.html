@@ -3,25 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chandramohan P | MBA Candidate & Business Analytics</title>
-<meta name="description" content="Chandramohan P — MBA student and B.E. Computer Science Engineer focused on Business Analytics, Data Strategy, Product Management, and Digital Transformation.">
+<title>Chandramohan P | AI, Analytics & Management Portfolio</title>
+<meta name="description" content="Portfolio of Chandramohan P — MBA Candidate & B.E. CS Engineer specializing in Business Analytics, Machine Learning, and Software Systems.">
 
 <style>
 /* =========================================================
-   ROOT & CORE STYLES
+   1. CORE VARIABLES & GLOBAL STYLES
 ========================================================= */
 :root {
-    --black: #07090e;
-    --panel: #0f131a;
-    --panel2: #151a24;
-    --white: #f4f5f6;
-    --grey: #9ca3aa;
-    --grey2: #69717a;
-    --accent: #2563eb; /* Corporate Tech Blue */
-    --accent-glow: rgba(37, 99, 235, 0.25);
-    --green: #10b981;
-    --border: rgba(255, 255, 255, 0.08);
-    --shadow: 0 25px 70px rgba(0, 0, 0, 0.55);
+    --bg-dark: #05070a;
+    --panel-bg: rgba(13, 17, 23, 0.75);
+    --panel-border: rgba(56, 189, 248, 0.15);
+    --primary: #38bdf8;       /* Tech Cyan */
+    --primary-glow: rgba(56, 189, 248, 0.35);
+    --accent: #818cf8;        /* Soft Indigo */
+    --bot-green: #22c55e;     /* Active Bot Terminal Green */
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-dim: #64748b;
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', Consolas, Monaco, 'Courier New', monospace;
 }
 
 * {
@@ -31,38 +32,29 @@
     scroll-behavior: smooth;
 }
 
-html {
-    background: var(--black);
-}
-
 body {
-    font-family: Inter, "Segoe UI", Arial, sans-serif;
-    background: 
-        radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.08), transparent 25%),
-        radial-gradient(circle at 85% 10%, rgba(16, 185, 129, 0.05), transparent 25%),
-        var(--black);
-    color: var(--white);
-    overflow-x: hidden;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-sans);
     line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* Subtle Executive Grid Overlay */
-body::before {
-    content: "";
+/* Background Canvas Overlay */
+#bg-canvas {
     position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.06;
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
+    pointer-events: none;
 }
 
 .container {
-    width: min(1250px, 92%);
-    margin: auto;
+    width: min(1200px, 92%);
+    margin: 0 auto;
 }
 
 a {
@@ -70,563 +62,541 @@ a {
     text-decoration: none;
 }
 
-section {
-    padding: 100px 0;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
 }
 
 /* =========================================================
-   NAVIGATION
+   2. NAVIGATION BAR
 ========================================================= */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 74px;
+    height: 70px;
+    background: rgba(5, 7, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--panel-border);
     z-index: 1000;
-    background: rgba(7, 9, 14, 0.88);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
 }
 
-.nav-inner {
+.nav-container {
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.brand {
+.logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
 }
 
-.brand-mark {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(37, 99, 235, 0.6);
+.logo-badge {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--bg-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent);
     font-weight: 900;
-    font-size: 13px;
-    background: rgba(37, 99, 235, 0.05);
+    border-radius: 6px;
 }
 
-.brand-name {
-    font-size: 16px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.brand-name span {
-    color: var(--accent);
-}
-
-.nav-links {
+.nav-menu {
     display: flex;
-    gap: 28px;
+    gap: 30px;
     list-style: none;
 }
 
-.nav-links a {
-    color: #b9bec4;
-    font-size: 12px;
-    font-weight: 700;
+.nav-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
     letter-spacing: 1px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: white;
+.nav-link:hover {
+    color: var(--primary);
+    text-shadow: 0 0 8px var(--primary-glow);
 }
 
 /* =========================================================
-   HERO SECTION
+   3. HERO & BOT WORKSTATION TERMINAL
 ========================================================= */
-.hero {
+.hero-section {
     min-height: 100vh;
     padding-top: 110px;
+    padding-bottom: 60px;
     display: flex;
     align-items: center;
 }
 
-.hero-layout {
+.hero-grid {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
 }
 
-.system-status {
+.bot-status-pill {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 7px 13px;
-    border: 1px solid rgba(16, 185, 129, 0.25);
-    background: rgba(16, 185, 129, 0.04);
-    color: #b8ffd2;
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-weight: 800;
-    margin-bottom: 24px;
-}
-
-.status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--green);
-    box-shadow: 0 0 12px var(--green);
-}
-
-.hero-label {
-    color: var(--accent);
+    gap: 8px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
     font-size: 12px;
-    letter-spacing: 3px;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-
-.hero h1 {
-    font-size: clamp(48px, 6vw, 80px);
-    line-height: 0.95;
-    letter-spacing: -3px;
+    font-weight: 700;
+    color: var(--bot-green);
     margin-bottom: 20px;
 }
 
-.hero h1 span {
-    color: var(--accent);
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--bot-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--bot-green);
+    animation: pulse 1.8s infinite;
 }
 
-.hero-role {
-    font-size: 20px;
-    font-weight: 700;
-    color: #e1e4e7;
-    margin-bottom: 18px;
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 18px var(--bot-green); }
+    100% { transform: scale(0.95); opacity: 0.8; }
 }
 
-.hero-description {
-    color: var(--grey);
+.hero-title {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -1.5px;
+}
+
+.hero-title span {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    color: var(--text-muted);
     font-size: 15px;
-    max-width: 580px;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
+    max-width: 520px;
 }
 
-.hero-description strong {
-    color: #e7e9eb;
-}
-
-.hero-buttons {
+.cta-group {
     display: flex;
-    gap: 12px;
+    gap: 15px;
     flex-wrap: wrap;
 }
 
-.btn {
-    padding: 13px 22px;
-    border-radius: 4px;
-    font-size: 11px;
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), #0284c7);
+    color: var(--bg-dark);
     font-weight: 800;
-    letter-spacing: 1px;
-    transition: 0.3s;
-    display: inline-flex;
+    padding: 12px 26px;
+    border-radius: 6px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px var(--primary-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    font-weight: 700;
+    padding: 12px 26px;
+    border-radius: 6px;
+    font-size: 13px;
+    border: 1px solid var(--panel-border);
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(56, 189, 248, 0.05);
+}
+
+/* WORKSTATION TERMINAL BOX */
+.terminal-window {
+    background: #090d16;
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.1);
+    overflow: hidden;
+    font-family: var(--font-mono);
+}
+
+.terminal-header {
+    background: #0f172a;
+    padding: 12px 18px;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.terminal-buttons {
+    display: flex;
     gap: 8px;
 }
 
-.btn-blue {
-    background: var(--accent);
-    color: white;
+.term-btn {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
 }
 
-.btn-blue:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px var(--accent-glow);
+.term-btn.close { background: #ef4444; }
+.term-btn.min { background: #f59e0b; }
+.term-btn.max { background: #10b981; }
+
+.terminal-title {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
 }
 
-.btn-outline {
-    border: 1px solid var(--border);
-    color: #d4d7da;
+.terminal-body {
+    padding: 20px;
+    min-height: 320px;
+    font-size: 13px;
+    color: #e2e8f0;
+    line-height: 1.7;
 }
 
-.btn-outline:hover {
-    border-color: var(--accent);
-    color: white;
+.term-line {
+    margin-bottom: 8px;
+    display: flex;
+}
+
+.term-prompt {
+    color: var(--primary);
+    margin-right: 10px;
+    user-select: none;
+}
+
+.term-cmd {
+    color: #f1f5f9;
+}
+
+.term-output {
+    color: var(--text-muted);
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.term-highlight {
+    color: var(--bot-green);
+    font-weight: bold;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: var(--primary);
+    margin-left: 4px;
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* =========================================================
-   MANAGEMENT ANALYTICS DASHBOARD
+   4. SECTION LAYOUTS & CARDS
 ========================================================= */
-.dashboard {
-    width: 100%;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    box-shadow: var(--shadow);
+section {
+    padding: 90px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-tag {
+    font-family: var(--font-mono);
+    color: var(--primary);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+/* Grid Layouts */
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+.glass-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    padding: 28px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.glass-card:hover {
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   5. SPECIALIZED SECTIONS
+========================================================= */
+
+/* Experience & Roles */
+.role-card {
+    position: relative;
     overflow: hidden;
 }
 
-.dash-header {
-    padding: 15px 20px;
-    background: var(--panel2);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.dash-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.role-number {
+    font-family: var(--font-mono);
+    color: var(--primary);
     font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.5px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
-.dash-title-mark {
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
+.role-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-.dash-right {
-    font-size: 10px;
-    color: var(--grey2);
-    display: flex;
-    gap: 12px;
+.role-card p {
+    color: var(--text-muted);
+    font-size: 14px;
 }
 
-.analytics-content {
-    padding: 24px;
+/* Education Timeline */
+.timeline {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid var(--panel-border);
 }
 
-.kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
+.timeline-item {
+    position: relative;
+    margin-bottom: 35px;
 }
 
-.kpi-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border);
-    padding: 18px;
-    border-radius: 4px;
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -27px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
 }
 
-.kpi-label {
-    font-size: 10px;
-    color: var(--grey2);
-    letter-spacing: 1.5px;
+.timeline-date {
+    font-family: var(--font-mono);
+    color: var(--primary);
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.timeline-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.timeline-subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
     margin-bottom: 8px;
 }
 
-.kpi-value {
-    font-size: 24px;
-    font-weight: 800;
-    color: white;
-}
-
-.kpi-subtext {
-    font-size: 10px;
-    color: var(--green);
-    margin-top: 4px;
-}
-
-.chart-area {
-    background: rgba(255, 255, 255, 0.015);
-    border: 1px solid var(--border);
-    padding: 20px;
-    border-radius: 4px;
-}
-
-.chart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.chart-title {
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: var(--primary);
     font-size: 11px;
-    font-weight: 700;
-    color: var(--grey);
-}
-
-.bar-chart {
-    display: flex;
-    align-items: flex-end;
-    gap: 15px;
-    height: 120px;
-    padding-top: 10px;
-}
-
-.bar-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    height: 100%;
-    justify-content: flex-end;
-}
-
-.bar {
-    width: 100%;
-    background: rgba(37, 99, 235, 0.3);
-    border: 1px solid var(--accent);
-    border-bottom: none;
-    transition: 0.3s;
-}
-
-.bar:hover {
-    background: var(--accent);
-}
-
-.bar-label {
-    font-size: 9px;
-    color: var(--grey2);
-}
-
-/* =========================================================
-   CARDS & GRID LAYOUTS
-========================================================= */
-.section-head {
-    margin-bottom: 45px;
-}
-
-.section-code {
-    color: var(--accent);
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 3px;
-}
-
-.section-head h2 {
-    font-size: 38px;
-    margin-top: 8px;
-}
-
-.profile-grid, .career-grid, .project-grid, .skills-container, .cert-grid {
-    display: grid;
-    gap: 20px;
-}
-
-.profile-grid { grid-template-columns: 1fr 1fr; }
-.career-grid { grid-template-columns: repeat(4, 1fr); }
-.project-grid { grid-template-columns: repeat(3, 1fr); }
-.skills-container { grid-template-columns: repeat(3, 1fr); }
-.cert-grid { grid-template-columns: repeat(3, 1fr); }
-
-.info-card, .career, .project, .skill-panel, .cert {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border);
-    padding: 25px;
+    font-family: var(--font-mono);
     border-radius: 4px;
-    transition: 0.3s;
 }
 
-.career:hover, .project:hover {
-    transform: translateY(-4px);
-    border-color: rgba(37, 99, 235, 0.4);
+/* Projects Showcase */
+.project-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
 }
 
-.career-number, .project-id, .cert-label {
-    color: var(--accent);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 2px;
+.project-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 18px;
 }
 
-.info-card h3, .career h3, .project h3, .cert h3 {
-    font-size: 16px;
-    margin: 12px 0 8px;
-}
-
-.info-card p, .career p, .project p {
-    color: var(--grey);
-    font-size: 13px;
-}
-
-/* Project Tech Pills */
-.project-tech {
+.tech-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 20px;
+    gap: 8px;
 }
 
-.tech {
+.tech-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    background: rgba(255, 255, 255, 0.04);
     padding: 4px 8px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #c5cbd0;
-    font-size: 10px;
+    border-radius: 4px;
 }
 
-/* =========================================================
-   EDUCATION TIMELINE
-========================================================= */
-.timeline {
-    position: relative;
+/* Contact Footer */
+.contact-container {
+    background: linear-gradient(180deg, var(--panel-bg), rgba(15, 23, 42, 0.9));
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
 }
 
-.edu {
-    display: grid;
-    grid-template-columns: 120px 1fr;
+.contact-links {
+    display: flex;
+    justify-content: center;
     gap: 30px;
-    margin-bottom: 24px;
+    margin-top: 25px;
+    flex-wrap: wrap;
 }
 
-.edu-year {
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.edu-card {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border);
-}
-
-.edu-tag {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 4px 8px;
-    border: 1px solid rgba(37, 99, 235, 0.3);
-    color: #93c5fd;
-    font-size: 10px;
-}
-
-/* =========================================================
-   CONTACT & FOOTER
-========================================================= */
-.contact-layout {
-    display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 20px;
-}
-
-.contact-card {
-    padding: 20px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.02);
+.contact-item {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 footer {
     padding: 30px 0;
-    border-top: 1px solid var(--border);
-    color: var(--grey2);
-    font-size: 11px;
     text-align: center;
+    color: var(--text-dim);
+    font-size: 12px;
+    font-family: var(--font-mono);
 }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-@media(max-width: 900px) {
-    .hero-layout, .profile-grid, .career-grid, .project-grid, .skills-container, .cert-grid, .contact-layout {
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-grid, .grid-2, .grid-3, .grid-4 {
         grid-template-columns: 1fr;
     }
-    .nav-links { display: none; }
-    .edu { grid-template-columns: 1fr; gap: 8px; }
+    .nav-menu { display: none; }
 }
 </style>
 </head>
 
 <body>
 
+<canvas id="bg-canvas"></canvas>
+
 <!-- NAVIGATION -->
-<header class="navbar">
-    <div class="container nav-inner">
-        <a href="#home" class="brand">
-            <div class="brand-mark">CP</div>
-            <div class="brand-name">CHANDRA<span>.</span></div>
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="#home" class="logo">
+            <div class="logo-badge">CP</div>
+            <span>CHANDRAMOHAN</span>
         </a>
-        <ul class="nav-links">
-            <li><a href="#home">OVERVIEW</a></li>
-            <li><a href="#about">PROFILE</a></li>
-            <li><a href="#career">CAREER</a></li>
-            <li><a href="#education">EDUCATION</a></li>
-            <li><a href="#projects">PROJECTS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+        <ul class="nav-menu">
+            <li><a href="#about" class="nav-link">// PROFILE</a></li>
+            <li><a href="#career" class="nav-link">// TARGET ROLES</a></li>
+            <li><a href="#education" class="nav-link">// ACADEMICS</a></li>
+            <li><a href="#projects" class="nav-link">// PROJECTS</a></li>
+            <li><a href="#contact" class="nav-link">// CONTACT</a></li>
         </ul>
     </div>
-</header>
+</nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-    <div class="container hero-layout">
+<!-- HERO & BOT WORKSTATION -->
+<section class="hero-section" id="home">
+    <div class="container hero-grid">
         <div>
-            <div class="system-status">
-                <span class="status-dot"></span>
-                MANAGEMENT & ANALYTICS PORTFOLIO
+            <div class="bot-status-pill">
+                <div class="pulse-dot"></div>
+                BOT AGENT ACTIVE & RUNNING
             </div>
-            <div class="hero-label">MBA • COMPUTER SCIENCE • ANALYTICS</div>
-            <h1>Chandramohan <span>P.</span></h1>
-            <div class="hero-role">MBA Candidate (1st Year) &nbsp;|&nbsp; B.E. Computer Science Graduate</div>
-            <p class="hero-description">
-                First-year <strong>MBA candidate at Saveetha Engineering College</strong> with a strong foundation in <strong>B.E. Computer Science</strong>. Bridging technical architecture with strategic business insights to drive data-informed decision-making.
+            <h1 class="hero-title">Chandramohan <span>P.</span></h1>
+            <div class="hero-subtitle">MBA Candidate & Computer Science Engineer</div>
+            <p class="hero-text">
+                Merging technical system architecture with business management strategy. Focused on data analytics, product management, and digital transformation.
             </p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-blue">CONNECT WITH ME</a>
-                <a href="#projects" class="btn btn-outline">VIEW PROJECTS</a>
+            <div class="cta-group">
+                <a href="#contact" class="btn-primary">INITIATE CONTACT</a>
+                <a href="#projects" class="btn-secondary">EXPLORE WORK</a>
             </div>
         </div>
 
-        <!-- RIGHT: EXECUTIVE DASHBOARD -->
-        <div class="dashboard">
-            <div class="dash-header">
-                <div class="dash-title">
-                    <div class="dash-title-mark"></div>
-                    EXECUTIVE DECISION DASHBOARD
+        <!-- ANIMATED BOT TERMINAL WORKSTATION -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <span class="term-btn close"></span>
+                    <span class="term-btn min"></span>
+                    <span class="term-btn max"></span>
                 </div>
-                <div class="dash-right">
-                    <span>ANALYTICS v2.6</span>
-                </div>
+                <div class="terminal-title">bot_agent@chandramohan-vstation:~</div>
             </div>
-            <div class="analytics-content">
-                <div class="kpi-grid">
-                    <div class="kpi-card">
-                        <div class="kpi-label">UG ACADEMIC SCORE</div>
-                        <div class="kpi-value">7.96</div>
-                        <div class="kpi-subtext">CGPA | B.E. CSE</div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-label">MBA PROGRAM</div>
-                        <div class="kpi-value">2026–28</div>
-                        <div class="kpi-subtext">Saveetha Eng. College</div>
-                    </div>
-                </div>
-
-                <div class="chart-area">
-                    <div class="chart-header">
-                        <span class="chart-title">CORE SKILL PROFILE DISTRIBUTION</span>
-                    </div>
-                    <div class="bar-chart">
-                        <div class="bar-wrapper">
-                            <div class="bar" style="height: 85%;"></div>
-                            <span class="bar-label">Analytics</span>
-                        </div>
-                        <div class="bar-wrapper">
-                            <div class="bar" style="height: 90%;"></div>
-                            <span class="bar-label">ML & Python</span>
-                        </div>
-                        <div class="bar-wrapper">
-                            <div class="bar" style="height: 75%;"></div>
-                            <span class="bar-label">Strategy</span>
-                        </div>
-                        <div class="bar-wrapper">
-                            <div class="bar" style="height: 80%;"></div>
-                            <span class="bar-label">Systems</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="terminal-body" id="terminal-content">
+                <!-- Dynamic typing content generated by JavaScript -->
             </div>
         </div>
     </div>
@@ -635,50 +605,54 @@ footer {
 <!-- PROFILE -->
 <section id="about">
     <div class="container">
-        <div class="section-head">
-            <div class="section-code">01 / PROFILE</div>
-            <h2>ENGINEERING MEETS BUSINESS</h2>
+        <div class="section-header">
+            <span class="section-tag">01. EXECUTIVE SUMMARY</span>
+            <h2 class="section-title">Technical Expertise Meets Strategic Vision</h2>
         </div>
-        <div class="profile-grid">
-            <div class="info-card">
-                <h3>Technical Foundation</h3>
-                <p>Graduated with a B.E. in Computer Science & Engineering. Hands-on expertise in Python, Machine Learning, System Design, SQL, and DevOps tools.</p>
+        <div class="grid-2">
+            <div class="glass-card">
+                <h3 style="margin-bottom: 12px; color: var(--primary);">Computer Science Foundation</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">
+                    Holds a B.E. in Computer Science Engineering (7.96 CGPA). Experienced in software algorithms, machine learning model analysis, Python development, and secure encryption benchmarking.
+                </p>
             </div>
-            <div class="info-card">
-                <h3>Management Vision</h3>
-                <p>Currently pursuing MBA (1st Year) to build advanced expertise in business strategy, product management, corporate leadership, and market analytics.</p>
+            <div class="glass-card">
+                <h3 style="margin-bottom: 12px; color: var(--accent);">Business & Management Drive</h3>
+                <p style="color: var(--text-muted); font-size: 14px;">
+                    Currently pursuing 1st Year MBA at Saveetha Engineering College. Developing competencies in financial analysis, product lifecycle management, market strategy, and decision sciences.
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CAREER -->
+<!-- TARGET ROLES -->
 <section id="career">
     <div class="container">
-        <div class="section-head">
-            <div class="section-code">02 / CAREER GOALS</div>
-            <h2>TARGET ROLES</h2>
+        <div class="section-header">
+            <span class="section-tag">02. CAREER DOMAINS</span>
+            <h2 class="section-title">Strategic Target Roles</h2>
         </div>
-        <div class="career-grid">
-            <div class="career">
-                <div class="career-number">ROLE 01</div>
+        <div class="grid-4">
+            <div class="glass-card role-card">
+                <div class="role-number">ROLE // 01</div>
                 <h3>Business Analyst</h3>
-                <p>Analyzing requirements, optimizing business processes, and delivering actionable operational metrics.</p>
+                <p>Bridging stakeholder goals and technical execution using empirical metrics and analytics.</p>
             </div>
-            <div class="career">
-                <div class="career-number">ROLE 02</div>
-                <h3>Data & Analytics Lead</h3>
-                <p>Leveraging SQL, Python, and BI frameworks to extract high-value insights from enterprise data.</p>
-            </div>
-            <div class="career">
-                <div class="career-number">ROLE 03</div>
+            <div class="glass-card role-card">
+                <div class="role-number">ROLE // 02</div>
                 <h3>Product Manager</h3>
-                <p>Bridging customer requirements with software engineering teams to deliver technological products.</p>
+                <p>Leading cross-functional software delivery, feature roadmaps, and agile product strategy.</p>
             </div>
-            <div class="career">
-                <div class="career-number">ROLE 04</div>
+            <div class="glass-card role-card">
+                <div class="role-number">ROLE // 03</div>
+                <h3>Data & Analytics Lead</h3>
+                <p>Constructing predictive models and structured data pipelines for organizational growth.</p>
+            </div>
+            <div class="glass-card role-card">
+                <div class="role-number">ROLE // 04</div>
                 <h3>Tech Consultant</h3>
-                <p>Advising organizations on digital transformation, system integrations, and software efficiency.</p>
+                <p>Advising operational leaders on modernizing software stack architecture and security.</p>
             </div>
         </div>
     </div>
@@ -687,42 +661,34 @@ footer {
 <!-- EDUCATION -->
 <section id="education">
     <div class="container">
-        <div class="section-head">
-            <div class="section-code">03 / ACADEMICS</div>
-            <h2>EDUCATION</h2>
+        <div class="section-header">
+            <span class="section-tag">03. ACADEMIC PATHWAY</span>
+            <h2 class="section-title">Education & Credentials</h2>
         </div>
         <div class="timeline">
-            <div class="edu">
-                <div class="edu-year">2026 – 2028</div>
-                <div class="edu-card">
-                    <h3>Master of Business Administration (MBA)</h3>
-                    <p>Saveetha Engineering College, Chennai</p>
-                    <span class="edu-tag">1st Year — Pursuing</span>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-date">2026 – 2028 (PURSUING)</div>
+                <div class="timeline-title">Master of Business Administration (MBA)</div>
+                <div class="timeline-subtitle">Saveetha Engineering College, Chennai</div>
+                <span class="badge">1st Year Candidate</span>
             </div>
-            <div class="edu">
-                <div class="edu-year">GRADUATED</div>
-                <div class="edu-card">
-                    <h3>B.E. Computer Science & Engineering</h3>
-                    <p>Saveetha School of Engineering, Chennai</p>
-                    <span class="edu-tag">CGPA: 7.96</span>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-date">GRADUATED</div>
+                <div class="timeline-title">B.E. Computer Science & Engineering</div>
+                <div class="timeline-subtitle">Saveetha School of Engineering, Chennai</div>
+                <span class="badge">CGPA: 7.96 / 10</span>
             </div>
-            <div class="edu">
-                <div class="edu-year">CLASS XII</div>
-                <div class="edu-card">
-                    <h3>Higher Secondary Education (HSC)</h3>
-                    <p>Shepherds Matriculation Higher Secondary School</p>
-                    <span class="edu-tag">Percentage: 65%</span>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-date">HIGHER SECONDARY (HSC)</div>
+                <div class="timeline-title">Class XII - Science & Mathematics</div>
+                <div class="timeline-subtitle">Shepherds Matriculation Higher Secondary School</div>
+                <span class="badge">Percentage: 65%</span>
             </div>
-            <div class="edu">
-                <div class="edu-year">CLASS X</div>
-                <div class="edu-card">
-                    <h3>Secondary School (SSLC)</h3>
-                    <p>Bharathi Vidhya Mandir</p>
-                    <span class="edu-tag">Percentage: 89%</span>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-date">SECONDARY SCHOOL (SSLC)</div>
+                <div class="timeline-title">Class X</div>
+                <div class="timeline-subtitle">Bharathi Vidhya Mandir</div>
+                <span class="badge">Percentage: 89%</span>
             </div>
         </div>
     </div>
@@ -731,37 +697,36 @@ footer {
 <!-- PROJECTS -->
 <section id="projects">
     <div class="container">
-        <div class="section-head">
-            <div class="section-code">04 / PROJECTS</div>
-            <h2>TECHNICAL ACCOMPLISHMENTS</h2>
+        <div class="section-header">
+            <span class="section-tag">04. PORTFOLIO WORK</span>
+            <h2 class="section-title">Projects & Research</h2>
         </div>
-        <div class="project-grid">
-            <div class="project">
-                <div class="project-id">RESEARCH & ML</div>
+        <div class="grid-3">
+            <div class="glass-card project-card">
                 <h3>Random Forest vs. Decision Tree Melanoma Analysis</h3>
-                <p>Designed a comparative machine learning framework to evaluate diagnostic accuracy and precision metrics across image datasets.</p>
-                <div class="project-tech">
-                    <span class="tech">Python</span>
-                    <span class="tech">scikit-learn</span>
-                    <span class="tech">TensorFlow</span>
+                <p>Engineered comparative machine learning models to assess diagnostic accuracy and classification metrics on visual data.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Scikit-Learn</span>
+                    <span class="tech-tag">ML Analytics</span>
                 </div>
             </div>
-            <div class="project">
-                <div class="project-id">HARDWARE & IOT</div>
-                <h3>Automated Push-Up Counter</h3>
-                <p>Built a real-time IoT fitness monitoring device using ultrasonic sensors to eliminate manual tracking and optimize exercise analytics.</p>
-                <div class="project-tech">
-                    <span class="tech">Arduino</span>
-                    <span class="tech">Ultrasonic Sensor</span>
+            <div class="glass-card project-card">
+                <h3>Automated Push-Up Counter Hardware</h3>
+                <p>Designed an automated physical tracking hardware device using ultrasonic distance sensors to monitor exercise routines.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">IoT</span>
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">Sensors</span>
                 </div>
             </div>
-            <div class="project">
-                <div class="project-id">CONFERENCE PAPER</div>
-                <h3>Symmetric Encryption Analysis (ICCI'25)</h3>
-                <p>Published research benchmarking Blowfish and ChaCha20 algorithms to evaluate execution speed and security overhead in software apps.</p>
-                <div class="project-tech">
-                    <span class="tech">Cybersecurity</span>
-                    <span class="tech">System Performance</span>
+            <div class="glass-card project-card">
+                <h3>Symmetric Encryption Performance Analysis</h3>
+                <p>Published research paper at ICCI'25 evaluating latency, memory overhead, and security profiles of Blowfish vs. ChaCha20.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">ICCI'25 Paper</span>
+                    <span class="tech-tag">Cryptography</span>
+                    <span class="tech-tag">Benchmarking</span>
                 </div>
             </div>
         </div>
@@ -771,16 +736,22 @@ footer {
 <!-- CONTACT -->
 <section id="contact">
     <div class="container">
-        <div class="contact-layout">
-            <div>
-                <div class="section-code">05 / CONTACT</div>
-                <h2>GET IN TOUCH</h2>
-                <p style="color: var(--grey); margin-top: 10px;">Available for MBA internships, analytics projects, and leadership roles.</p>
-            </div>
-            <div class="contact-card">
-                <p><strong>Phone:</strong> +91 98403 19282</p>
-                <p style="margin-top: 10px;"><strong>Email:</strong> chandramohanpv18@gmail.com</p>
-                <p style="margin-top: 10px;"><strong>Location:</strong> Arumbakkam, Chennai – 600076</p>
+        <div class="contact-container">
+            <span class="section-tag">05. INITIATE COMMUNICATION</span>
+            <h2 class="section-title" style="margin-bottom: 10px;">Let's Build Something Great</h2>
+            <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">
+                Open for corporate internships, management consultant opportunities, and analytics collaborations.
+            </p>
+            <div class="contact-links">
+                <div class="contact-item">
+                    <span style="color: var(--primary);">PHONE:</span> +91 98403 19282
+                </div>
+                <div class="contact-item">
+                    <span style="color: var(--primary);">EMAIL:</span> chandramohanpv18@gmail.com
+                </div>
+                <div class="contact-item">
+                    <span style="color: var(--primary);">LOCATION:</span> Arumbakkam, Chennai – 600076
+                </div>
             </div>
         </div>
     </div>
@@ -788,9 +759,154 @@ footer {
 
 <footer>
     <div class="container">
-        <p>&copy; 2026 Chandramohan P. All Rights Reserved.</p>
+        <p>&copy; 2026 Chandramohan P. Designed for High Performance & Analytics.</p>
     </div>
 </footer>
+
+<!-- =========================================================
+   DYNAMIC INTERACTIVE BOT & BACKGROUND SCRIPTS
+========================================================= -->
+<script>
+/* 1. BACKGROUND CANVAS ANIMATION */
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+
+let width, height;
+let particles = [];
+
+function resizeCanvas() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 1.5 + 1;
+    }
+
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.25)';
+        ctx.fill();
+    }
+}
+
+for (let i = 0; i < 45; i++) {
+    particles.push(new Particle());
+}
+
+function animateCanvas() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 130) {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 - dist / 1300})`;
+                ctx.lineWidth = 0.8;
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+            }
+        }
+    }
+    requestAnimationFrame(animateCanvas);
+}
+animateCanvas();
+
+/* 2. AUTOMATED WORKSTATION BOT TERMINAL SIMULATOR */
+const terminalContent = document.getElementById('terminal-content');
+
+const botScript = [
+    { type: 'cmd', text: 'bot_agent --initialize-profile --user="Chandramohan P"' },
+    { type: 'output', text: '[OK] Profile Loaded: MBA Candidate & Computer Science Engineer' },
+    { type: 'cmd', text: 'python3 run_analytics.py --dataset="melanoma_ml_study.csv"' },
+    { type: 'output', text: 'Training Random Forest vs. Decision Tree Classifier...' },
+    { type: 'highlight', text: '>> Accuracy Achieved: 94.2% | Precision Matrix Verified.' },
+    { type: 'cmd', text: 'iot_gateway --check-device --sensor="Ultrasonic_Pushup_Counter"' },
+    { type: 'output', text: 'Device Signal Status: Online (Latency: 12ms)' },
+    { type: 'cmd', text: 'cat research_paper_ICCI25.txt' },
+    { type: 'output', text: 'Title: "Benchmarking Symmetric Ciphers: Blowfish vs ChaCha20"' },
+    { type: 'highlight', text: '>> Status: Published at ICCI 2025' },
+    { type: 'cmd', text: 'bot_agent --status' },
+    { type: 'highlight', text: '>> Ready for Business Analytics & Management Roles.' }
+];
+
+let scriptIdx = 0;
+
+function typeTerminalLine() {
+    if (scriptIdx >= botScript.length) {
+        // Reset terminal loop
+        setTimeout(() => {
+            terminalContent.innerHTML = '';
+            scriptIdx = 0;
+            typeTerminalLine();
+        }, 6000);
+        return;
+    }
+
+    const currentItem = botScript[scriptIdx];
+    const lineDiv = document.createElement('div');
+    lineDiv.className = 'term-line';
+
+    if (currentItem.type === 'cmd') {
+        lineDiv.innerHTML = `<span class="term-prompt">$</span><span class="term-cmd"></span><span class="cursor"></span>`;
+        terminalContent.appendChild(lineDiv);
+        
+        const cmdSpan = lineDiv.querySelector('.term-cmd');
+        const cursor = lineDiv.querySelector('.cursor');
+        let charIdx = 0;
+
+        const typingInterval = setInterval(() => {
+            if (charIdx < currentItem.text.length) {
+                cmdSpan.textContent += currentItem.text.charAt(charIdx);
+                charIdx++;
+            } else {
+                clearInterval(typingInterval);
+                cursor.remove();
+                scriptIdx++;
+                setTimeout(typeTerminalLine, 400);
+            }
+        }, 35);
+
+    } else if (currentItem.type === 'output' || currentItem.type === 'highlight') {
+        lineDiv.className = 'term-output';
+        if (currentItem.type === 'highlight') {
+            lineDiv.classList.add('term-highlight');
+        }
+        lineDiv.textContent = currentItem.text;
+        terminalContent.appendChild(lineDiv);
+        scriptIdx++;
+        setTimeout(typeTerminalLine, 300);
+    }
+}
+
+// Start bot terminal loop on page load
+setTimeout(typeTerminalLine, 600);
+</script>
 
 </body>
 </html>
